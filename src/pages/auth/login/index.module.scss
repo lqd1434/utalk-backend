@@ -1,0 +1,39 @@
+.cardBox{
+  margin: 170px auto;
+  padding: 10px;
+  z-index: 10;
+  width: 500px;
+  height: 350px;
+  background-color: rgba(232,242,251,0.6);
+  border-radius: 20px;
+
+  .title{
+    text-align: center;
+    color: #48C8EE;
+    margin: 20px 0 0 0;
+    padding: 0;
+  }
+  .subtitle{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    color: grey;
+  }
+  .inputCon {
+    margin: 10px 60px;
+    position: relative;
+
+    .input {
+      display: inline-block;
+      height: 2rem;
+      border-radius: 5px;
+      width: 100%;
+      background: transparent;
+    }
+  }
+
+  .btn{
+    margin: auto;
+  }
+}
