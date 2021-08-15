@@ -1,17 +1,15 @@
 import React from 'react'
 import styles from './index.module.scss'
-import DataCard from '../../components/DataCard'
-import { Pane } from 'evergreen-ui'
+import Divider from '../../components/Divider'
+import OutLookFuture from './OutLookFuture'
+import DateCardList from './DateCardList'
 
 const Home = () => {
 	return (
 		<div className={styles.home}>
-			<Pane display={'flex'} flexDirection={'row'} justifyContent={'space-around'} paddingTop={30}>
-				<DataCard />
-				<DataCard />
-				<DataCard />
-				<DataCard />
-			</Pane>
+			<DateCardList />
+			<Divider marginTop={28} marginBottom={15} />
+			<OutLookFuture />
 		</div>
 	)
 }

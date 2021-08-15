@@ -7,6 +7,7 @@ import LimitRoute from './LimitRoute'
 const Login = React.lazy(() => import('../pages/auth/login'))
 const Medium = React.lazy(() => import('../Medium'))
 const Home = React.lazy(() => import('../pages/home'))
+const Statistics = React.lazy(() => import('../pages/statistics'))
 
 export const FirstRouterAuth = () => {
 	return (
@@ -27,6 +28,7 @@ export const LimitRoutePages = () => {
 			<Switch>
 				<Redirect exact from="/u" to="/u/home" />
 				<LimitRoute path="/u/home" Component={Home} exact />
+				<LimitRoute path="/u/statistics" Component={Statistics} exact />
 			</Switch>
 		</Suspense>
 	)

@@ -1,10 +1,19 @@
 import * as React from 'react'
+import { ReactNode } from 'react'
 import { Avatar, Card, Pane, Text } from 'evergreen-ui'
 import styles from './index.module.scss'
+import { Property } from 'csstype'
 
-const DataCard = () => {
+interface PropTypes {
+	icon?: ReactNode
+	count?: number
+	title?: string
+	bgColor?: Property.BackgroundColor
+}
+
+const DataCard: React.FC<PropTypes> = ({ icon, title = '', count = 0, bgColor = 'white' }) => {
 	return (
-		<Card width={230} height={130} backgroundColor={'white'} elevation={2} borderRadius={7} padding={5}>
+		<Card width={230} height={130} backgroundColor={bgColor} elevation={2} borderRadius={7} padding={5}>
 			<Pane className={styles.con} height={120}>
 				<Pane gridRow={1} className={styles.topRow}>
 					<Pane paddingLeft={10} paddingTop={10}>

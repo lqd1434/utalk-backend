@@ -1,14 +1,21 @@
 import * as React from 'react'
+import { ReactNode } from 'react'
 import { Pane, Text } from 'evergreen-ui'
 import styles from './index.module.scss'
+import { useHistory } from 'react-router-dom'
 
 interface PropTypes {
-	Icon: () => JSX.Element
+	Icon: ReactNode
 	text: string
+	route?: string
 }
 
 const SideBarCell: React.FC<PropTypes> = (props) => {
-	const { Icon, text } = props
+	const { Icon, text, route } = props
+	const history = useHistory()
+	const readerIcon = (): JSX.Element => {
+		return <>{Icon}</>
+	}
 	return (
 		<Pane
 			color={'white'}
@@ -19,8 +26,9 @@ const SideBarCell: React.FC<PropTypes> = (props) => {
 			justifyContent={'start'}
 			paddingLeft={30}
 			className={styles.cell}
+			onClick={route ? () => history.push(route) : () => {}}
 		>
-			<Icon />
+			{readerIcon()}
 			<Text color={'white'} size={500}>
 				{text}
 			</Text>
