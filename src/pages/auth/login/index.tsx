@@ -1,9 +1,9 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import styles from './index.module.scss'
 import Background from '../../../components/Background'
 import clsx from 'clsx'
-import { Button, TextInput, Pane } from 'evergreen-ui'
+import { Button, Pane, TextInput, toaster } from 'evergreen-ui'
 
 const Login = () => {
 	const history = useHistory()
@@ -20,6 +20,7 @@ const Login = () => {
 	const login = () => {
 		localStorage.setItem('login', 'true')
 		history.push('/u')
+		toaster.success('欢迎回来,亲爱的管理员')
 	}
 
 	return (

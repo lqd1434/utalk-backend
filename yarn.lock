@@ -1896,6 +1896,11 @@ punycode@^2.1.0:
   resolved "https://registry.nlark.com/punycode/download/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha1-tYsBCsQMIsVldhbI0sLALHv0eew=
 
+react-content-loader@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.npm.taobao.org/react-content-loader/download/react-content-loader-6.0.3.tgz?cache=0&sync_timestamp=1617697026793&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-content-loader%2Fdownload%2Freact-content-loader-6.0.3.tgz#32e28ca7120e0a2552fc26655d0d4448cc1fc0c5"
+  integrity sha1-MuKMpxIOCiVS/CZlXQ1ESMwfwMU=
+
 react-dom@^17.0.2:
   version "17.0.2"
   resolved "https://registry.nlark.com/react-dom/download/react-dom-17.0.2.tgz?cache=0&sync_timestamp=1628525792338&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-dom%2Fdownload%2Freact-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"

@@ -6,6 +6,7 @@ const OutLookFuture = () => {
 		<Card
 			float={'right'}
 			marginLeft={10}
+			marginRight={20}
 			border={'1px solid #2DA8A8'}
 			width={'40%'}
 			borderRadius={11}
@@ -20,7 +21,7 @@ const OutLookFuture = () => {
 				justifyContent={'center'}
 				alignItems="center"
 				borderTopLeftRadius={11}
-				borderTopRightRadius={10}
+				borderTopRightRadius={11}
 			>
 				<Text fontSize={20} color={'white'} fontWeight="bold">
 					功能展望

@@ -3,21 +3,11 @@
   grid-template-rows: 1fr 30px;
   justify-content: start;
   grid-row-gap: 10px;
+  align-items: center;
+  align-content: start;
+  grid-template-areas:
+          "leftIcon rightTopData rightTopData"
+          "leftIcon rightBottomData rightBottomData"
+          "bottomData bottomData bottomData";
 
-
-  .topRow{
-    display: grid;
-    grid-template-columns:60px 1fr;
-    grid-column-gap: 10px;
-
-    .leftRow{
-      display: grid;
-      grid-template-rows: 40px 20px;
-      padding-left: 20px;
-      padding-top: 10px;
-      align-content: center;
-      justify-content: start;
-      align-items: center;
-    }
-  }
 }

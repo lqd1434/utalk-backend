@@ -17,7 +17,7 @@ const SideBar = () => {
 				</Pane>
 				<SideBarCell text={'首页'} route={'/u/home'} Icon={<HomeIcon marginRight={10} />} />
 				<SideBarCell text={'统计数据'} route={'/u/statistics'} Icon={<BuildIcon marginRight={10} />} />
-				<SideBarCell text={'用户列表'} Icon={<ChartIcon marginRight={10} />} />
+				<SideBarCell text={'用户列表'} route={'/u/userList'} Icon={<ChartIcon marginRight={10} />} />
 				<SideBarCell text={'权限管理'} Icon={<LockIcon marginRight={10} />} />
 			</div>
 		</>
