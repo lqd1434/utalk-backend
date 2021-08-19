@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from './index.module.scss'
-import { Avatar, BuildIcon, ChartIcon, HomeIcon, LockIcon, Pane, Text } from 'evergreen-ui'
+import { Avatar, BuildIcon, ChartIcon, HomeIcon, Pane, ShieldIcon, Text } from 'evergreen-ui'
 import SideBarCell from '../SideBarCell'
 
 const SideBar = () => {
 	return (
 		<>
-			<div className={styles.sideBar}>
+			<Pane className={styles.sideBar} userSelect={'none'}>
 				<Pane>
 					<Avatar name={'Utalk'} size={70} marginLeft={90} marginTop={20} marginBottom={10} />
 				</Pane>
@@ -18,8 +18,8 @@ const SideBar = () => {
 				<SideBarCell text={'首页'} route={'/u/home'} Icon={<HomeIcon marginRight={10} />} />
 				<SideBarCell text={'统计数据'} route={'/u/statistics'} Icon={<BuildIcon marginRight={10} />} />
 				<SideBarCell text={'用户列表'} route={'/u/userList'} Icon={<ChartIcon marginRight={10} />} />
-				<SideBarCell text={'权限管理'} Icon={<LockIcon marginRight={10} />} />
-			</div>
+				<SideBarCell text={'管理员'} route={'/u/adminManage'} Icon={<ShieldIcon marginRight={10} />} />
+			</Pane>
 		</>
 	)
 }

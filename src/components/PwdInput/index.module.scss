@@ -1,0 +1,12 @@
+.input {
+	border: none;
+	user-select: none;
+	text-align: center;
+
+	&:focus {
+		border: none;
+		outline: none;
+        user-select: none;
+		background-color: transparent;
+	}
+}

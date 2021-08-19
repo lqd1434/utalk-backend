@@ -9,6 +9,7 @@ const Medium = React.lazy(() => import('../Medium'))
 const Home = React.lazy(() => import('../pages/home'))
 const Statistics = React.lazy(() => import('../pages/statistics'))
 const UserList = React.lazy(() => import('../pages/userList'))
+const AdminManage = React.lazy(() => import('../pages/adminManage'))
 
 export const FirstRouterAuth = () => {
 	return (
@@ -23,7 +24,6 @@ export const FirstRouterAuth = () => {
 }
 
 export const LimitRoutePages = () => {
-	console.log('li')
 	return (
 		<Suspense fallback={<Loading />}>
 			<Switch>
@@ -31,6 +31,7 @@ export const LimitRoutePages = () => {
 				<LimitRoute path="/u/home" Component={Home} exact />
 				<LimitRoute path="/u/statistics" Component={Statistics} exact />
 				<LimitRoute path="/u/userList" Component={UserList} exact />
+				<LimitRoute path="/u/adminManage" Component={AdminManage} exact />
 			</Switch>
 		</Suspense>
 	)

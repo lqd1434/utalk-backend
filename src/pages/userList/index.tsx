@@ -13,6 +13,7 @@ import {
 	Table,
 	Text,
 } from 'evergreen-ui'
+import PasswordInput from '../../components/PwdInput'
 
 const profiles: { id: number; name: string; number: string; password: string }[] = []
 const UserList = () => {
@@ -77,7 +78,9 @@ const UserList = () => {
 								<Table.TextCell>{'jack'}</Table.TextCell>
 								<Table.TextCell>{'123458'}</Table.TextCell>
 								<Table.TextCell>1434288209@qq.com</Table.TextCell>
-								<Table.TextCell>{'12'}</Table.TextCell>
+								<Table.TextCell>
+									<PasswordInput value={'1434288'} />
+								</Table.TextCell>
 								<Table.TextCell>
 									<Text
 										cursor={'pointer'}
