@@ -79,7 +79,7 @@ const UserList = () => {
 								<Table.TextCell>{'123458'}</Table.TextCell>
 								<Table.TextCell>1434288209@qq.com</Table.TextCell>
 								<Table.TextCell>
-									<PasswordInput value={'1434288'} />
+									<PasswordInput value={'1434288.'} />
 								</Table.TextCell>
 								<Table.TextCell>
 									<Text
