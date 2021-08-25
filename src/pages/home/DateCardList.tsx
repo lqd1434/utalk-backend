@@ -7,7 +7,7 @@ const DateCardList = () => {
 		<Pane display={'flex'} flexDirection={'row'} justifyContent={'space-around'} paddingTop={30}>
 			<DataCard bgColor={'#66D6D6'} />
 			<DataCard bgColor={'#F9DADA'} />
-			<DataCard bgColor={'#A49BE4'} />
+			<DataCard bgColor={'#A5A9F1'} />
 			<DataCard bgColor={'#A4CAFF'} />
 		</Pane>
 	)

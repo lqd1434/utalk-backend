@@ -13,9 +13,6 @@ interface PropTypes {
 const SideBarCell: React.FC<PropTypes> = (props) => {
 	const { Icon, text, route } = props
 	const history = useHistory()
-	const readerIcon = (): JSX.Element => {
-		return <>{Icon}</>
-	}
 	return (
 		<Pane
 			color={'white'}
@@ -28,7 +25,7 @@ const SideBarCell: React.FC<PropTypes> = (props) => {
 			className={styles.cell}
 			onClick={route ? () => history.push(route) : () => {}}
 		>
-			{readerIcon()}
+			{Icon}
 			<Text color={'white'} size={500}>
 				{text}
 			</Text>

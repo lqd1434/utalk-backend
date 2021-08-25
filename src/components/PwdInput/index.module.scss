@@ -1,13 +1,11 @@
 .password {
 	border: none;
-	user-select: none;
 	text-align: center;
-	font-size: 14px;
+	font-size: 10px;
 
 	&:focus {
 		border: none;
 		outline: none;
-        user-select: none;
 		background-color: transparent;
 	}
 }
