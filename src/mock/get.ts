@@ -17,15 +17,35 @@ const UserListData = (page: number, limit: number) => {
 	}
 }
 
-export const data = Mock.mock(/^\/api\/[a-zA-Z]+\??[^?'":./]*$/, (options: any) => {
+export const userListData = Mock.mock(/^\/api\/userList\??[^?'":./]*$/, (options: any) => {
 	const url = new URL('https://www.baidu.com' + options.url)
 	// const paramsString: string[] = url.search.match(/[^?]+/gi) as string[]
 	const paramsString: string = url.search.slice(1) //也可以这样
 	const params = new URLSearchParams(paramsString)
 	const page = parseInt(params.get('page') ?? '')
 	const limit = parseInt(params.get('limit') ?? '')
-	console.log(page, limit)
 	const template = UserListData(page, limit)
 	return Mock.mock(template)
 })
-// 输出结果
+
+export const lineMapData = Mock.mock('/api/lineMapData', {
+	'lineMapData|7': [
+		{
+			'week|+1': ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期天'],
+			'value|100-1000': 105,
+		},
+	],
+})
+
+export const appList = Mock.mock('/api/appList', {
+	'appList|10': [
+		{
+			id: /[\d]{6}/,
+			icon: /[A-Z]{2}/,
+			name: /([a-z]|[A-Z]){5}/,
+			url: /^https:\/\/[a-z0-9]{5,8}\.[a-z]{2,3}$/,
+			'dayActive|100-1000': 102,
+			'allActive|1000-5000': 1002,
+		},
+	],
+})

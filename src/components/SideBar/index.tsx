@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './index.module.scss'
-import { Avatar, BuildIcon, ChartIcon, HomeIcon, Pane, ShieldIcon, Text } from 'evergreen-ui'
+import { Avatar, BuildIcon, ChartIcon, CubeIcon, HomeIcon, Pane, ShieldIcon, Text } from 'evergreen-ui'
 import SideBarCell from '../SideBarCell'
 
 const SideBar = () => {
@@ -19,6 +19,7 @@ const SideBar = () => {
 				<SideBarCell text={'统计数据'} route={'/u/statistics'} Icon={<BuildIcon marginRight={10} />} />
 				<SideBarCell text={'用户列表'} route={'/u/userList'} Icon={<ChartIcon marginRight={10} />} />
 				<SideBarCell text={'管理员'} route={'/u/adminManage'} Icon={<ShieldIcon marginRight={10} />} />
+				<SideBarCell text={'微应用'} route={'/u/appList'} Icon={<CubeIcon marginRight={10} />} />
 			</Pane>
 		</>
 	)

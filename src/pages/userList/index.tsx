@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
+	Autocomplete,
 	Avatar,
 	Button,
 	Dialog,
@@ -8,17 +9,17 @@ import {
 	Pane,
 	PeopleIcon,
 	SearchIcon,
-	SearchInput,
 	Select,
 	Switch,
 	Table,
 	Text,
+	TextInput,
 } from 'evergreen-ui'
 import PasswordInput from '../../components/PwdInput'
 import '../../mock/get'
 import axios from 'axios'
 
-type profilesItem = {
+type ProfilesItem = {
 	id: number
 	image: string
 	name: string
@@ -31,7 +32,9 @@ const UserList = () => {
 	const [page, setPage] = useState(1)
 	const [isShow, setIsShow] = useState(false)
 	const [checked, setChecked] = React.useState(true)
-	const [profiles, setProfiles] = useState<profilesItem[]>([])
+	const [profiles, setProfiles] = useState<ProfilesItem[]>([])
+	const [searchItems, setSearchItems] = useState<string[]>([])
+	const [searchType, setSearchType] = useState('ID')
 
 	useEffect(() => {
 		fetchUserList({ page: 1, limit: 10 }).then((value) => {
@@ -49,6 +52,10 @@ const UserList = () => {
 		})
 		console.log(data)
 		setProfiles(() => data.data.userList)
+		const tem = (data.data.userList as ProfilesItem[]).map((item: ProfilesItem) => {
+			return item.name
+		})
+		setSearchItems(tem)
 	}
 
 	return (
@@ -57,20 +64,35 @@ const UserList = () => {
 				用户列表
 			</Heading>
 			<Pane paddingBottom={20} height={50} display={'flex'} justifyContent="space-between">
-				<Pane>
-					<SearchInput placeholder="搜索" marginRight={10} width={200} />
-					<Select
-						onChange={(event) => {
-							console.log(event.target.value)
-						}}
+				<Pane display={'flex'} flexDirection={'row'} justifyContent="space-around">
+					{/*<SearchInput placeholder="搜索" marginRight={10} width={200} />*/}
+					<Autocomplete
+						title={searchType}
+						onChange={(changedItem) => console.log(changedItem)}
+						items={searchItems}
 					>
-						<option value="foo">Foo</option>
-						<option value="bar">Bar</option>
-					</Select>
-					<Button marginLeft={10}>
-						<SearchIcon marginRight={5} />
-						<Text>搜索</Text>
-					</Button>
+						{(props) => {
+							const { getInputProps, getRef, inputValue } = props
+							return <TextInput placeholder="请输入搜索词" ref={getRef} {...getInputProps()} />
+						}}
+					</Autocomplete>
+					<Pane display={'flex'} flexDirection={'row'} marginLeft={10}>
+						<Select
+							width={80}
+							onChange={(event) => {
+								setSearchType(event.target.value)
+							}}
+						>
+							<option value="ID">ID</option>
+							<option value="name">name</option>
+							<option value="email">email</option>
+							<option value="UU号">UU号</option>
+						</Select>
+						<Button marginLeft={10}>
+							<SearchIcon marginRight={5} />
+							<Text>搜索</Text>
+						</Button>
+					</Pane>
 				</Pane>
 				<Button marginRight={20}>
 					<PeopleIcon marginRight={5} />

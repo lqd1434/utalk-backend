@@ -10,6 +10,7 @@ const Home = React.lazy(() => import('../pages/home'))
 const Statistics = React.lazy(() => import('../pages/statistics'))
 const UserList = React.lazy(() => import('../pages/userList'))
 const AdminManage = React.lazy(() => import('../pages/adminManage'))
+const AppList = React.lazy(() => import('../pages/webApp/appList'))
 
 export const FirstRouterAuth = () => {
 	return (
@@ -32,6 +33,7 @@ export const LimitRoutePages = () => {
 				<LimitRoute path="/u/statistics" Component={Statistics} exact />
 				<LimitRoute path="/u/userList" Component={UserList} exact />
 				<LimitRoute path="/u/adminManage" Component={AdminManage} exact />
+				<LimitRoute path="/u/appList" Component={AppList} exact />
 			</Switch>
 		</Suspense>
 	)
