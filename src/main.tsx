@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router } from 'react-router-dom'
 import './global.scss'
 import App from './App'
+import GaRouterProvider from './Gaprovider'
 
 ReactDOM.render(
-	<Router>
+	<GaRouterProvider>
 		<App />
-	</Router>,
+	</GaRouterProvider>,
 	document.getElementById('root'),
 )

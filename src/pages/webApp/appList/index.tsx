@@ -47,8 +47,8 @@ const AppList = () => {
 						</Table.TextHeaderCell>
 						<Table.TextHeaderCell>名字</Table.TextHeaderCell>
 						<Table.TextHeaderCell>网址</Table.TextHeaderCell>
-						<Table.TextHeaderCell>日活</Table.TextHeaderCell>
-						<Table.TextHeaderCell>总活</Table.TextHeaderCell>
+						<Table.TextHeaderCell>日活跃(人)</Table.TextHeaderCell>
+						<Table.TextHeaderCell>总活跃(人)</Table.TextHeaderCell>
 					</Table.Head>
 					<Table.Body>
 						{appList.map((item, index) => {
