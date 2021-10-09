@@ -18,6 +18,7 @@ const SideBarCell: React.FC<PropTypes> = (props) => {
 			color={'white'}
 			height={50}
 			paddingY={10}
+			marginX={10}
 			display={'flex'}
 			alignItems={'center'}
 			justifyContent={'start'}

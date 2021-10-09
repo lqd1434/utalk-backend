@@ -1,8 +1,8 @@
 import React from 'react'
-import { PropsType } from './index'
+import { RoutePropsType } from './index'
 import { Redirect, Route } from 'react-router-dom'
 
-const AuthRoute: React.FC<PropsType> = (props) => {
+const AuthRoute: React.FC<RoutePropsType> = (props) => {
 	const checkAuth = !!localStorage.getItem('login')
 	const { path, Component, exact } = props
 	return (
