@@ -9,21 +9,29 @@
   border-radius: 5px;
 }
 
-.logo{
+.logoCon{
   transition: all 1s ease;
   position: relative;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.btn {
+.logo {
+  display: block;
   border: none;
-  background: rgb(251,33,117);
-  background: linear-gradient(0deg, #6366F1 0%,#5A5DFA 30%, #3F42E2 100%);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(0deg, #6B6EE8 40%, #3F42E2 100%);
   color: #fff;
   overflow: hidden;
   &:hover {
     text-decoration: none;
     color: #fff;
     opacity: .7;
+    cursor: pointer;
   }
   &:before {
     position: absolute;
@@ -36,9 +44,6 @@
     background-color: #fff;
     animation: shiny-btn 15s ease-in-out infinite;
   }
-  //&:hover{
-  //  opacity: .7;
-  //}
   &:active{
     box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
     -4px -4px 6px 0 rgba(116, 125, 136, .2),
@@ -49,8 +54,8 @@
 
 @-webkit-keyframes shiny-btn {
   0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
-  20% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
-  21% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
-  30% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+  15% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+  16% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+  20% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
   100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
 }
