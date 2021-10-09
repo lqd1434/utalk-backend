@@ -5,15 +5,15 @@ import { emitter } from '../utils/EventEmiter'
 
 const useGaListener = (gaCode: string) => {
 	const customHistory = useRef<History<LocationState>>()
-
 	customHistory.current = createBrowserHistory()
-	console.log(customHistory.current?.location.pathname)
+
 	useEffect(() => {
-		//解决手动刷新造成的活跃路由样式与页面不匹配的问题
-		if (customHistory.current?.location.pathname) {
-			emitter.emit<string>('currentRoute', customHistory.current?.location.pathname)
-		}
+		const pathname = customHistory.current?.location.pathname as string
+		emitter.on<undefined>('sideBarMounted', () => {
+			emitter.emit<string>('currentRoute', pathname)
+		})
 	}, [])
+
 	ReactGA.initialize(gaCode)
 	customHistory.current?.listen((location) => {
 		ReactGA.set({ page: window.location.pathname })
@@ -24,4 +24,5 @@ const useGaListener = (gaCode: string) => {
 
 	return customHistory.current as History<LocationState>
 }
+
 export default useGaListener

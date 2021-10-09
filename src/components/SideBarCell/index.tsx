@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ReactNode, useEffect } from 'react'
+import { ReactNode, useLayoutEffect } from 'react'
 import { Pane, Text } from 'evergreen-ui'
 import styles from './index.module.scss'
 import { useHistory } from 'react-router-dom'
@@ -25,7 +25,9 @@ const SideBarCell: React.FC<PropTypes> = observer((props) => {
 		}
 	}
 
-	useEffect(() => {
+	useLayoutEffect(() => {
+		emitter.emit<undefined>('sideBarMounted', undefined)
+
 		emitter.on<string>('currentRoute', (currentRoute) => {
 			if (currentRoute !== sideBarRoute.currentRoute) {
 				sideBarRoute.setRoute(currentRoute)
