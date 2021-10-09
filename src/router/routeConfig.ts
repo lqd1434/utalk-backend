@@ -1,8 +1,6 @@
 import { RoutePropsType } from './index'
 import React from 'react'
 
-const Login = React.lazy(() => import('../pages/auth/login'))
-const Medium = React.lazy(() => import('../Medium'))
 const Home = React.lazy(() => import('../pages/home'))
 const Statistics = React.lazy(() => import('../pages/statistics'))
 const UserList = React.lazy(() => import('../pages/userList'))

@@ -1,14 +1,20 @@
 import { makeAutoObservable } from 'mobx'
+import { limitRouteList } from '../router/routeConfig'
 
 export class SideBarRoute {
-	currentRoute: string = ''
+	currentRoute: string = '/u/home'
 
 	constructor() {
 		makeAutoObservable(this)
 	}
 
-	setIndex(index: string) {
-		this.currentRoute = index
+	setIndex(route: string) {
+		const routes = limitRouteList.map((item) => {
+			return item.path
+		})
+		if (routes.includes(route)) {
+			this.currentRoute = route
+		}
 	}
 }
 

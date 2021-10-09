@@ -3,6 +3,9 @@ import { ReactNode } from 'react'
 import { Pane, Text } from 'evergreen-ui'
 import styles from './index.module.scss'
 import { useHistory } from 'react-router-dom'
+import { observer } from 'mobx-react'
+import { sideBarRoute } from '../../mobx/state'
+import clsx from 'clsx'
 
 interface PropTypes {
 	Icon: ReactNode
@@ -10,21 +13,31 @@ interface PropTypes {
 	route?: string
 }
 
-const SideBarCell: React.FC<PropTypes> = (props) => {
+const SideBarCell: React.FC<PropTypes> = observer((props) => {
 	const { Icon, text, route } = props
 	const history = useHistory()
+
+	const changeRoute = () => {
+		if (route) {
+			sideBarRoute.setIndex(route)
+			history.push(route)
+		}
+	}
+	const isActive = sideBarRoute.currentRoute === route
+	console.log(isActive)
 	return (
 		<Pane
 			color={'white'}
 			height={50}
 			paddingY={10}
 			marginX={10}
+			marginY={8}
 			display={'flex'}
 			alignItems={'center'}
 			justifyContent={'start'}
 			paddingLeft={30}
-			className={styles.cell}
-			onClick={route ? () => history.push(route) : () => {}}
+			className={clsx([styles.cell, isActive && styles.cellActive])}
+			onClick={changeRoute}
 		>
 			{Icon}
 			<Text color={'white'} size={500}>
@@ -32,6 +45,6 @@ const SideBarCell: React.FC<PropTypes> = (props) => {
 			</Text>
 		</Pane>
 	)
-}
+})
 
 export default SideBarCell

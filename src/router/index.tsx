@@ -1,12 +1,16 @@
-import React, { Fragment, Suspense } from 'react'
+import React, { Suspense } from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import AuthRoute from './AuthRoute'
 import Loading from '../components/Loading'
 import LimitRoute from './LimitRoute'
-import { limitRouteList } from './routeConfig'
 
 const Login = React.lazy(() => import('../pages/auth/login'))
 const Medium = React.lazy(() => import('../Medium'))
+const Home = React.lazy(() => import('../pages/home'))
+const Statistics = React.lazy(() => import('../pages/statistics'))
+const UserList = React.lazy(() => import('../pages/userList'))
+const AdminManage = React.lazy(() => import('../pages/adminManage'))
+const AppList = React.lazy(() => import('../pages/webApp/appList'))
 
 export const FirstRouterAuth = () => {
 	return (
@@ -25,13 +29,11 @@ export const LimitRoutePages = () => {
 		<Suspense fallback={<Loading />}>
 			<Switch>
 				<Redirect exact from="/u" to="/u/home" />
-				{limitRouteList.map(({ path, Component, exact }) => {
-					return (
-						<Fragment key={path}>
-							<LimitRoute path={path} Component={Component} exact={exact} />
-						</Fragment>
-					)
-				})}
+				<LimitRoute path="/u/home" Component={Home} exact />
+				<LimitRoute path="/u/statistics" Component={Statistics} exact />
+				<LimitRoute path="/u/userList" Component={UserList} exact />
+				<LimitRoute path="/u/adminManage" Component={AdminManage} exact />
+				<LimitRoute path="/u/appList" Component={AppList} exact />
 			</Switch>
 		</Suspense>
 	)
