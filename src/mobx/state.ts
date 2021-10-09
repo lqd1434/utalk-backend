@@ -8,7 +8,7 @@ export class SideBarRoute {
 		makeAutoObservable(this)
 	}
 
-	setIndex(route: string) {
+	setRoute(route: string) {
 		const routes = limitRouteList.map((item) => {
 			return item.path
 		})

@@ -1,11 +1,12 @@
 import * as React from 'react'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { Pane, Text } from 'evergreen-ui'
 import styles from './index.module.scss'
 import { useHistory } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import { sideBarRoute } from '../../mobx/state'
 import clsx from 'clsx'
+import { emitter } from '../../utils/EventEmiter'
 
 interface PropTypes {
 	Icon: ReactNode
@@ -19,12 +20,19 @@ const SideBarCell: React.FC<PropTypes> = observer((props) => {
 
 	const changeRoute = () => {
 		if (route) {
-			sideBarRoute.setIndex(route)
+			sideBarRoute.setRoute(route)
 			history.push(route)
 		}
 	}
+
+	useEffect(() => {
+		emitter.on<string>('currentRoute', (currentRoute) => {
+			if (currentRoute !== sideBarRoute.currentRoute) {
+				sideBarRoute.setRoute(currentRoute)
+			}
+		})
+	}, [])
 	const isActive = sideBarRoute.currentRoute === route
-	console.log(isActive)
 	return (
 		<Pane
 			color={'white'}
