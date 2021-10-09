@@ -37,7 +37,7 @@ const SideBarCell: React.FC<PropTypes> = observer((props) => {
 	const isActive = sideBarRoute.currentRoute === route
 	return (
 		<Pane
-			color={'white'}
+			color={'#DEF6F6'}
 			height={50}
 			paddingY={10}
 			marginX={10}
@@ -50,7 +50,7 @@ const SideBarCell: React.FC<PropTypes> = observer((props) => {
 			onClick={changeRoute}
 		>
 			{Icon}
-			<Text color={'white'} size={500}>
+			<Text color={isActive ? '#FFF' : '#DEF6F6'} size={500}>
 				{text}
 			</Text>
 		</Pane>

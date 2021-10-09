@@ -2,13 +2,28 @@ import React from 'react'
 import styles from './index.module.scss'
 import { Avatar, BuildIcon, ChartIcon, CubeIcon, HomeIcon, Pane, ShieldIcon, Text } from 'evergreen-ui'
 import SideBarCell from '../SideBarCell'
+import clsx from 'clsx'
 
 const SideBar = () => {
 	return (
 		<>
 			<Pane className={styles.sideBar} userSelect={'none'}>
-				<Pane>
-					<Avatar name={'Utalk'} size={70} marginLeft={90} marginTop={20} marginBottom={10} />
+				<Pane
+					width={'100%'}
+					className={clsx([styles.logo])}
+					display={'flex'}
+					flexDirection={'row'}
+					justifyContent="center"
+					alignItems="center"
+				>
+					<Avatar
+						className={styles.btn}
+						display={'block'}
+						name={'Utalk'}
+						size={70}
+						marginTop={20}
+						marginBottom={10}
+					/>
 				</Pane>
 				<Pane display={'flex'} justifyContent="center" alignItems="center" marginBottom={50}>
 					<Text size={600} textAlign={'center'}>
